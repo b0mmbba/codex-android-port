@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Codex Android</string>
+    <string name="accessibility_service_label">Codex Android Control</string>
+    <string name="accessibility_service_description">Allows Codex to inspect app windows and perform gestures after you enable this service.</string>
+</resources>
