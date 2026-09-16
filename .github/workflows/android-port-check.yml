@@ -1,0 +1,29 @@
+name: Android port check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  project-structure:
+    name: Project structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check required Android port files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f .env.example
+          test -f android/build-android.ps1
+          test -f android/build-apk.ps1
+          test -f android/apk/AndroidManifest.xml
+          test -f android/apk/src/main/java/com/codexandroid/MainActivity.java
+          test -f android/apk/src/main/java/com/codexandroid/CodexAccessibilityService.java
+          test -f codex-rs/Cargo.toml
+          echo "Android port structure looks good."
